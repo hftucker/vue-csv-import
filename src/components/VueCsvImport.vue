@@ -11,7 +11,16 @@
                     </slot>
                 </div>
                 <div class="form-group csv-import-file">
-                    <input ref="csv" type="file" @change.prevent="validFileMimeType" :class="inputClass" name="csv">
+                    <q-file
+      v-model="file"
+      label="Pick one file"
+      filled
+      style="max-width: 300px"
+      ref="csv"
+      name="csv"
+      type="file" @change.prevent="validFileMimeType" :class="inputClass">
+      </q-file>
+                    
                     <slot name="error" v-if="showErrorMessage">
                         <div class="invalid-feedback d-block">
                             File type is invalid
